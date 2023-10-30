@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { FaOpencart } from "react-icons/fa";
 import Cart from "@/app/components/Cart";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,7 +11,6 @@ import { updateCart } from "@/Redux/slices/CartSlice";
 
 const Navbar = () => {
   const session = useSession();
-  const router = useRouter();
   const dispatch = useDispatch();
   const { cart } = useSelector((state: any) => state.cart);
 
