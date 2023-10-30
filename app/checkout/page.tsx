@@ -39,7 +39,9 @@ const Checkout = () => {
       if (response.status < 200 || response.status >= 300) {
         return toast.error("Some error occured.Please try after sometime.");
       }
-      window.location.href = response.data.url;
+      if (typeof window !== undefined) {
+        window.location.href = response.data.url;
+      }
     } catch (error) {
       console.log(error);
     } finally {
@@ -244,11 +246,7 @@ const Checkout = () => {
         </div>
         <div className="flex flex-col">
           <div
-            className={
-              window.innerWidth <= 768
-                ? "mt-24 text-3xl font-bold ml-20 text-red-950"
-                : "mt-44 text-3xl font-bold ml-20 text-red-950"
-            }
+            className={"mt-24 md:mt-44 text-3xl font-bold ml-20 text-red-950"}
           >
             <p className="border-l-4 border-red-200 px-2">Order Summary</p>
           </div>
