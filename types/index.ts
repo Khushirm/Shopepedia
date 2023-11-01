@@ -2,7 +2,7 @@ export type ProductType = {
   data: Product[];
 };
 
-export type Product = {
+export interface Product {
   title: string;
   _id: string;
   name: string;
@@ -14,7 +14,7 @@ export type Product = {
   discount:number;
 };
 
-export type ChildrenType = {
+export interface ChildrenType {
   children: React.ReactNode;
 };
 export interface CartProps {

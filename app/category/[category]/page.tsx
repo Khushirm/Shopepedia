@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-type CategoryType = {
+interface CategoryType  {
   _id: string;
   name: string;
   images: string[];

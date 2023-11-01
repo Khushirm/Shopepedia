@@ -11,6 +11,14 @@ import {
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { CartProps } from "@/types";
+
+interface AppState {
+  cart: {
+    cart: CartProps[];
+    totalPrice: number;
+  };
+}
 const Checkout = () => {
   const [user, setUser] = useState({
     name: "",
@@ -23,7 +31,7 @@ const Checkout = () => {
     city: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-  const { cart, totalPrice } = useSelector((state: any) => state.cart);
+  const { cart, totalPrice } = useSelector((state:AppState) => state.cart);
 
   const handleCheckout = async () => {
     setIsLoading(true);

@@ -8,11 +8,19 @@ import { FaOpencart } from "react-icons/fa";
 import Cart from "@/app/components/Cart";
 import { useDispatch, useSelector } from "react-redux";
 import { updateCart } from "@/Redux/slices/CartSlice";
+import { CartProps } from "@/types";
+
+interface Cart{
+  cart:{
+    cart:CartProps[];
+    totalPrice:number;
+  };
+}
 
 const Navbar = () => {
   const session = useSession();
   const dispatch = useDispatch();
-  const { cart } = useSelector((state: any) => state.cart);
+  const { cart } = useSelector((state: Cart) => state.cart);
 
   const [isCartOpen, setIsCartOpen] = useState(false);
 

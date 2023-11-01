@@ -2,16 +2,23 @@
 
 import Button from "./ProductButton";
 import { useDispatch } from "react-redux";
-import { addItem, deleteItem } from "@/Redux/slices/CartSlice";
+import { addItem } from "@/Redux/slices/CartSlice";
 import Link from "next/link";
+
+interface ProductType{
+  name:string;
+  price:number;
+  images:string[];
+}
+interface BuyNowButtonProps{
+  product:ProductType;
+  toggleCart:()=>void;
+}
 
 const BuyNowButton = ({
   product,
-  toggleCart,
-}: {
-  product: any;
-  toggleCart: () => void;
-}) => {
+  toggleCart
+}: BuyNowButtonProps)=> {
   const dispatch = useDispatch();
 
   const getCartDetails = () => {

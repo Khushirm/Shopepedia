@@ -1,16 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
 
+interface Category{
+  name:string;
+  _id:string;
+  image:string;
+}
+
 const Categories = async () => {
   const res = await fetch(
     "https://ecomm-store-api.vercel.app/products/categories"
   );
-  const { data: categories }: any = await res.json();
+  const { data: categories }: {data:Category[]} = await res.json();
   return (
     <section className="flex flex-col items-center mt-12">
       <p className="text-5xl font-semibold mb-5 text-rose-600 ">"Delivering Dreams, One Click at a Time"</p>
       <div className="flex flex-wrap gap-x-4 gap-y-12 p-8 justify-center">
-        {categories.map((category: any) => {
+        {categories.map((category:Category) => {
           return (
             <Link
               href={`category/${category.name}`}

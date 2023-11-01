@@ -1,4 +1,3 @@
-
 "use client";
 import axios from "axios";
 import { Product } from "@/types";
@@ -7,7 +6,13 @@ import BuyNowButton from "@/app/components/BuyNowButton";
 import { BsStarFill } from "react-icons/bs";
 import { useEffect, useState } from "react";
 
-const ProductPage = ({ params: { id } }: any) => {
+interface ProductPageProps{
+  params:{
+    id:string;
+  };
+}
+
+const ProductPage = ({ params: { id } }: ProductPageProps) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [product, setProduct] = useState<Product | null>(null);
 

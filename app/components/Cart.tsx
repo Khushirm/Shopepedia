@@ -7,9 +7,15 @@ import { useDispatch, useSelector } from "react-redux";
 interface CartProp {
   onClose: () => void;
 }
+interface AppState{
+  cart:{
+    cart:CartProps[];
+    totalPrice:number;
+  }
+}
 
 const Cart: React.FC<CartProp> = ({ onClose }) => {
-  const cart: CartProps[] = useSelector((state: any) => state.cart.cart);
+  const cart: CartProps[] = useSelector((state:AppState) => state.cart.cart);
   const dispatch = useDispatch();
 
   return (
